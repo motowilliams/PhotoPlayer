@@ -98,6 +98,12 @@
     <Content Include="samples\muybridge_race_horse_animated1_13.gif" />
     <Content Include="samples\muybridge_race_horse_animated1_14.gif" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\lightresize\Imazen.LightResize.csproj">
+      <Project>{c13ae8f5-392c-40db-9fa8-ac7337a5c229}</Project>
+      <Name>Imazen.LightResize</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

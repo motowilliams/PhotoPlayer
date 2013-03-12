@@ -12,6 +12,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{DC4D94
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoPlayer.Client", "PhotoPlayer.Client\PhotoPlayer.Client.csproj", "{AF013278-8DD2-4A2F-A588-8223F58CAF83}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Imazen.LightResize", "lightresize\Imazen.LightResize.csproj", "{C13AE8F5-392C-40DB-9FA8-AC7337A5C229}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,6 +28,10 @@ Global
 		{AF013278-8DD2-4A2F-A588-8223F58CAF83}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AF013278-8DD2-4A2F-A588-8223F58CAF83}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AF013278-8DD2-4A2F-A588-8223F58CAF83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C13AE8F5-392C-40DB-9FA8-AC7337A5C229}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C13AE8F5-392C-40DB-9FA8-AC7337A5C229}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C13AE8F5-392C-40DB-9FA8-AC7337A5C229}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C13AE8F5-392C-40DB-9FA8-AC7337A5C229}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,3 @@
+[submodule "lightresize"]
+	path = lightresize
+	url = git://github.com/imazen/lightresize.git

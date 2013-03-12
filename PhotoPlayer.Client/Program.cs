@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
+using Imazen.LightResize;
 using Microsoft.AspNet.SignalR.Client.Hubs;
 
 namespace PhotoPlayer.Client
@@ -29,22 +30,26 @@ namespace PhotoPlayer.Client
             while (true)
                 foreach (var imagePath in Directory.GetFiles(@"..\..\samples").OrderBy(x => x))
                 {
-                    FileStream fileStream = File.OpenRead(imagePath);
-                    var memoryStream = new MemoryStream();
-                    fileStream.CopyTo(memoryStream);
-
-                    _hubProxy.Invoke<string>("Send", memoryStream.ToArray()).ContinueWith(task =>
+                    using (MemoryStream memoryStream = new MemoryStream())
                     {
-                        if (task.IsFaulted)
+                        FileStream fileStream = File.OpenRead(imagePath);
+
+                        var j = new ResizeJob { Format = OutputFormat.Jpg, Width = 800 };
+                        j.Build(fileStream, memoryStream, JobOptions.LeaveTargetStreamOpen);
+
+                        _hubProxy.Invoke<string>("Send", memoryStream.ToArray()).ContinueWith(task =>
                         {
-                            Console.WriteLine("Send failed {0}", task.Exception.GetBaseException());
-                            return;
-                        }
+                            if (task.IsFaulted)
+                            {
+                                Console.WriteLine("Send failed {0}", task.Exception.GetBaseException());
+                                return;
+                            }
 
-                        Console.WriteLine(imagePath);
+                            Console.WriteLine(imagePath);
 
-                    }).Wait();
-                    System.Threading.Thread.Sleep(45);
+                        }).Wait();
+                        System.Threading.Thread.Sleep(45);
+                    }
                 }
         }
     }
